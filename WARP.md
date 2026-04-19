@@ -3,35 +3,38 @@
 This file provides guidance to WARP (warp.dev) when working with code in this repository.
 
 ## What this repo is
-This repository is a **Claude Code skill** implemented entirely as Markdown.
+This repository is a **skill repo** implemented entirely as Markdown.
 
-The “runtime” artifact is `SKILL.md`: Claude Code reads the YAML frontmatter (metadata + allowed tools) and the prompt/instructions that follow.
+The runtime artifact for this repo lives at `hci-humanizer/SKILL.md`: Claude Code reads the YAML frontmatter (metadata + allowed tools) and the prompt/instructions that follow.
 
 `README.md` is for humans: installation, usage, and a compact overview of the patterns.
 
 ## Key files (and how they relate)
-- `SKILL.md`
+- `hci-humanizer/SKILL.md`
   - The actual skill definition.
   - Starts with YAML frontmatter (`---` … `---`) containing `name`, `version`, `description`, and `allowed-tools`.
   - After the frontmatter is the editor prompt: the canonical, detailed pattern list with examples.
+- `hci-humanizer/samples/`
+  - Voice and glossary files loaded by the skill via paths relative to `hci-humanizer/SKILL.md`.
 - `README.md`
   - Installation and usage instructions.
   - Contains a summarized “25 patterns” table and a short version history.
 
-When changing behavior/content, treat `SKILL.md` as the source of truth, and update `README.md` to stay consistent.
+When changing behavior/content, treat `hci-humanizer/SKILL.md` as the source of truth, and update `README.md` to stay consistent.
 
 ## Common commands
 ### Install the skill into Claude Code
-Recommended (clone directly into Claude Code skills directory):
+Recommended (copy the packaged skill directory):
 ```bash
 mkdir -p ~/.claude/skills
-git clone https://github.com/sarkrui/hci-humanizer.git ~/.claude/skills/hci-humanizer
+cp -r hci-humanizer ~/.claude/skills/
 ```
 
-Manual install/update (only the skill file):
+If you need to clone the repo first:
 ```bash
-mkdir -p ~/.claude/skills/hci-humanizer
-cp -r SKILL.md samples ~/.claude/skills/hci-humanizer/
+git clone https://github.com/sarkrui/CCSwitchSkills.git
+mkdir -p ~/.claude/skills
+cp -r CCSwitchSkills/hci-humanizer ~/.claude/skills/
 ```
 
 ## How to “run” it (Claude Code)
@@ -40,12 +43,12 @@ Invoke the skill:
 
 ## Making changes safely
 ### Versioning (keep in sync)
-- `SKILL.md` has a `version:` field in its YAML frontmatter.
+- `hci-humanizer/SKILL.md` has a `version:` field in its YAML frontmatter.
 - `README.md` has a “Version History” section.
 
 If you bump the version, update both.
 
-### Editing `SKILL.md`
+### Editing `hci-humanizer/SKILL.md`
 - Preserve valid YAML frontmatter formatting and indentation.
 - Keep the pattern numbering stable unless you’re intentionally re-numbering (since the README table and examples reference the same numbering).
 

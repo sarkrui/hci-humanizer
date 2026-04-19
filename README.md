@@ -1,42 +1,53 @@
-# HCI Humanizer
+# CCSwitchSkills
 
-A Claude Code / OpenCode skill that polishes HCI / interaction-design writing (ACM TEI, DIS, CHI) so it reads as designerly and authored — not AI-generated. Forked and tuned from the original Humanizer skill, with HCI-specific anti-patterns, a research-through-design vocabulary, and an auto-loaded voice-sample folder.
+This repository packages the `hci-humanizer` skill in CC Switch's repo-level format:
+
+```text
+CCSwitchSkills/
+  hci-humanizer/
+    SKILL.md
+    samples/
+```
+
+`hci-humanizer` polishes HCI / interaction-design writing (ACM TEI, DIS, CHI) so it reads as designerly and authored, not AI-generated. It is forked and tuned from the original Humanizer skill, with HCI-specific anti-patterns, a research-through-design vocabulary, and an auto-loaded voice-sample folder.
 
 ## Installation
 
 ### Claude Code
 
-Clone directly into Claude Code's skills directory:
+Copy the packaged skill directory into Claude Code's skills directory:
 
 ```bash
 mkdir -p ~/.claude/skills
-git clone https://github.com/sarkrui/hci-humanizer.git ~/.claude/skills/hci-humanizer
+cp -r hci-humanizer ~/.claude/skills/
 ```
 
-Or copy the skill file manually if you already have this repo cloned:
+If you want to clone the repo first:
 
 ```bash
-mkdir -p ~/.claude/skills/hci-humanizer
-cp -r SKILL.md samples ~/.claude/skills/hci-humanizer/
+git clone https://github.com/sarkrui/CCSwitchSkills.git
+mkdir -p ~/.claude/skills
+cp -r CCSwitchSkills/hci-humanizer ~/.claude/skills/
 ```
 
 ### OpenCode
 
-Clone directly into OpenCode's skills directory:
+Copy the packaged skill directory into OpenCode's skills directory:
 
 ```bash
 mkdir -p ~/.config/opencode/skills
-git clone https://github.com/sarkrui/hci-humanizer.git ~/.config/opencode/skills/hci-humanizer
+cp -r hci-humanizer ~/.config/opencode/skills/
 ```
 
-Or copy the skill file manually if you already have this repo cloned:
+If you want to clone the repo first:
 
 ```bash
-mkdir -p ~/.config/opencode/skills/hci-humanizer
-cp -r SKILL.md samples ~/.config/opencode/skills/hci-humanizer/
+git clone https://github.com/sarkrui/CCSwitchSkills.git
+mkdir -p ~/.config/opencode/skills
+cp -r CCSwitchSkills/hci-humanizer ~/.config/opencode/skills/
 ```
 
-> **Note:** OpenCode also scans `~/.claude/skills/` for compatibility, so a single clone into `~/.claude/skills/hci-humanizer/` works for both tools.
+> **Note:** OpenCode also scans `~/.claude/skills/` for compatibility, so placing `hci-humanizer/` under `~/.claude/skills/` works for both tools.
 
 ## Usage
 
